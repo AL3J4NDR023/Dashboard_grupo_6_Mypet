@@ -1,0 +1,33 @@
+.btn-prev-next {
+    display:flex ;
+    justify-content: space-between;
+}
+
+.btn-prev {
+    background-color :#FFFD77;
+    color: #000000;
+    border-radius:8px;
+    padding: 10px ;
+    border: none;
+
+}
+.btn-next {
+    background-color :#FFFD77;
+    color: #000000;
+    border-radius:8px ;
+    padding: 10px ;
+    border: none;
+
+}
+.button {
+    background-color: #d63384;
+    color: #ffff;
+    border-radius:8px ;
+    padding: 10px ;
+    border: none;
+}
+
+* {
+    font-family: 'Ubuntu';
+}
+
