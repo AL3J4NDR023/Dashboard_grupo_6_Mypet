@@ -7,23 +7,11 @@ function ChartRow(props){
                     <td>{props.id}</td>
                     <td>{props.name}</td>
                     <td>
-                        <ul>
-                            {props.categories.map( (category,i) => 
-                                <li key={`category ${i}`}>{category.category}</li>
-                            )}
-                        </ul>
+                        {props.description}
                     </td>
                     
                    
-                    <td>{props.Country.country}</td>
-                    <td>
-
-                        <ul>
-                            {props.colors.map( (category,i) => 
-                                <li key={`category ${i}`}>{category.color}</li>
-                            )}
-                        </ul>
-                    </td>
+                    <td>{props.category}</td>
                     
                     
                     

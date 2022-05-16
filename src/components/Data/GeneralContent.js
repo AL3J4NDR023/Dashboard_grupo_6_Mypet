@@ -7,13 +7,12 @@ import SmallCard from './SmallCard';
 /*aca pasamos el fetch*/
 
 const GeneralContent = () => {
-	const [productos, setproductos] = useState([]);
-	const [users, setusers] = useState([]);
-	const [categories, setcategories] = useState([]);
+	const [productos, setproductos] = useState([{count:2,data:[{name:'sin definir',category:'sin definir ',}]}]);
+	const [users, setusers] = useState([{count:2}]);
 		
 	
 	useEffect(() => {   
-		fetch("http://localhost:3001/api/products")
+		fetch("http://localhost:3000/api/products")
 		.then(response => response.json())
 		.then(data => {
 			setproductos(data)
@@ -21,24 +20,17 @@ const GeneralContent = () => {
 	},[])
 
 	useEffect(() => {   
-		fetch("http://localhost:3001/api/users")
+		fetch("http://localhost:3000/api/users")
 		.then(response => response.json())
 		.then(user => {
 			setusers(user)
 		})
 	},[])
 
-	useEffect(() => {   
-		fetch("http://localhost:3001/api/categories")
-		.then(response => response.json())
-		.then(categoria => {
-			setcategories(categoria)
-		})
-	},[])
+
 	
+	console.log('aqui va user',users)
 	
-	
-	const datos = [productos,users,categories]
 	
 	 
 	
@@ -47,11 +39,17 @@ const GeneralContent = () => {
 			
 			<div className="row">
 			
-			
-				{datos.map((dato,i) => (
-					 <SmallCard {...dato} key={i} />
-				)
-					)}
+			<SmallCard  
+			name='Productos'
+			count={productos.count}
+
+			/>
+			<SmallCard  
+			name='Usuarios'
+			count={users.count}
+
+			/>
+				
 			   
 	
 			</div></div>

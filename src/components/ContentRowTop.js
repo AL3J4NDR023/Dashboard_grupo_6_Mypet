@@ -34,7 +34,7 @@ function ContentRowTop(){
 						<Categorias />
 						
 					</div>
-					<Chart />
+					<Chart/>
 				</div>
 				</div>
 				{/*<!--End Content Row Top-->*/}

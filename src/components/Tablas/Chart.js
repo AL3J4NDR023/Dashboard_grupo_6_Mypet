@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import ChartRow from './ChartRow';
 
@@ -7,9 +8,19 @@ import ChartRow from './ChartRow';
 function Chart() {
     const [tableRowsData, setptableRowsData] = useState([]);
     const [page, setPage] = useState(0);
+	const [produc,setProduc] =useState([{count:2,data:[{id:'sin definir',name:'sin definir',category:'sin definir ',description:'sin definir'}]}])
     
 
     useEffect(() => {
+        const obtenerProductos=() =>{
+        fetch(`http://localhost:3000/api/products`)
+		.then(response => response.json())
+		.then(data => 	setProduc(data))
+        }
+        obtenerProductos();
+        },[])
+
+	useEffect(() => {
         
         fetch(`http://localhost:3001/api/products/page/${page}`)
 		.then(response => response.json())
@@ -28,7 +39,6 @@ function Chart() {
     const nextPage = () => {
         setPage(page + 1);
     }
-
     return (
         /* <!-- DataTales Example --> */<>
         <>
@@ -41,25 +51,17 @@ function Chart() {
                                 <th>ID</th>
                                 <th>Nombre</th>
                                 <th>Categoria</th>
-                                <th>Origen</th>
-                                <th>Color</th>
+                                
                             </tr>
                         </thead>
                         
                         <tbody>
-                            {
-                            tableRowsData.map( ( row , i) => {
-                                return <ChartRow { ...row} key={i}/>
-                            })
-                            }
+                      
 
                         </tbody>
                     </table>
 
-                    <div className="btn-prev-next">
-                        <button className="btn-prev" onClick={previousPage}>Anterior</button>
-                        <button className="btn-next" onClick={nextPage}>Siguiente</button>
-                    </div>
+                   
                 </div>
             </div>
         </div>
